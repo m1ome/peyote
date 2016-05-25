@@ -21,4 +21,4 @@ $ peyote '{"username": "admin", "status": 1, "is_admin": true}'
 ```
 
 # Output
-![First example](https://github.com/m1ome/peyote/blob/master/public/img/example-1.png)
+![First example](https://raw.githubusercontent.com/m1ome/peyote/master/public/img/example-1.png)
