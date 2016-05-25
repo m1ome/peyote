@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
-  "name": "pprint",
-  "description": "Pprint any string in console",
+  "name": "peyote",
+  "description": "Pretty print any string in console",
   "license": "MIT",
   "maintainers": [
     "Pavel Makarenko <cryfall@gmail.com>"
@@ -19,7 +19,8 @@
     "formatting",
     "cli",
     "command-line",
-    "string"
+    "string",
+    "peyote"
   ],
   "dependencies": {
     "chalk": "^1.1.3"
