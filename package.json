@@ -3,15 +3,24 @@
   "name": "peyote",
   "description": "Pretty print any string in console",
   "license": "MIT",
-  "maintainers": [
-    "Pavel Makarenko <cryfall@gmail.com>"
-  ],
+  "author": "Pavel Makarenko <cryfall@gmail.com>",
   "engines": {
     "node": ">=4"
   },
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "peyote": "./bin/peyote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m1ome/peyote.git"
+  },
+  "bugs": {
+    "url": "https://github.com/m1ome/peyote/issues"
+  },
+  "homepage": "https://github.com/m1ome/peyote",
   "keywords": [
     "pprint",
     "prettyprint",
