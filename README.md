@@ -12,12 +12,12 @@ Peyote is a simple and small flexible tool for pretty-print thing from cli!
 
 ## Via pipe
 ```
-$ echo '{"username": "admin", "status": 1, "is_admin_true"}' | peyote
+$ echo '{"username": "admin", "status": 1, "is_admin": true}' | peyote
 ``` 
 
 ## Via cli arguments
 ```
-$ peyote '{"username": "admin", "status": 1, "is_admin_true"}'
+$ peyote '{"username": "admin", "status": 1, "is_admin": true}'
 ```
 
 # Output
