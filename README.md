@@ -1,4 +1,7 @@
-> Pretty printing all type of sources
+> Pretty printing all type of sources  
+
+[![Build Status](https://travis-ci.org/m1ome/peyote.svg?branch=master)](https://travis-ci.org/m1ome/peyote)
+[![Coverage Status](https://coveralls.io/repos/github/m1ome/peyote/badge.svg?branch=master)](https://coveralls.io/github/m1ome/peyote?branch=master)
 
 # Install
 ```

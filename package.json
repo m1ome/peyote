@@ -8,7 +8,8 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "xo --ignore='test/**' && nyc mocha",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "bin": {
     "peyote": "./bin/peyote"
@@ -36,6 +37,13 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "nyc": "^6.4.4",
+    "xo": "^0.15.1"
+  },
+  "xo": {
+    "envs": [
+      "node"
+    ]
   }
 }
