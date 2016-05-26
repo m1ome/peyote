@@ -30,7 +30,8 @@
     "cli",
     "command-line",
     "string",
-    "peyote"
+    "peyote",
+    "csv"
   ],
   "dependencies": {
     "chalk": "^1.1.3",
