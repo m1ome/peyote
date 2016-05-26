@@ -2,7 +2,8 @@
 
 module.exports = function (data) {
 	const parsers = [
-		require('./parser/json')
+		require('./parser/json'),
+		require('./parser/csv')
 	];
 	let output = null;
 

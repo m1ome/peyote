@@ -63,8 +63,6 @@ function pprintJSON(object, pad, skipKeys) {
 				}
 				break;
 			default:
-				lines.push(val + comma(object, key));
-				break;
 		}
 	}
 

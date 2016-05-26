@@ -10,7 +10,11 @@ $ npm install -g peyote
 ```
 
 # About
-Peyote is a simple and small flexible tool for pretty-print thing from cli!
+Peyote is a simple and small flexible tool for pretty-print things from cli!
+
+Currently supported list of data:
+- [x] JSON
+- [x] CSV
 
 # Usages
 

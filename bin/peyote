@@ -8,10 +8,10 @@ function prettyPrint(data) {
     const result = pprint(data);
 
     if (result === null) {
-        console.log(chalk.red('Error: ') + chalk.black('unknown type of source'));
+        console.log(chalk.red('Error: ') + chalk.black('unknown type of source') + '\n');
     } else {
         if (result.length > 0) {
-            console.log(result.join('\n'));
+            console.log(result.join('\n') + '\n');
         }
     }
 }
