@@ -1,3 +1,5 @@
+'use strict';
+
 const chalk = require('chalk');
 
 const defaultTheme = 'light';
@@ -33,6 +35,7 @@ module.exports = function (theme) {
 	const themeObject = themes[theme];
 
 	/* eslint-disable guard-for-in */
+	/* eslint-disable no-loop-func */
 	for (var key in themeObject) {
 		const themer = themeObject[key];
 
