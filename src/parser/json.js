@@ -1,13 +1,11 @@
 'use strict';
 
-const chalk = require('chalk');
-
-function comma(element, value) {
+function comma(printer, element, value) {
 	const keys = Object.keys(element);
-	return (keys.indexOf(value) === (keys.length - 1)) ? chalk.black('') : chalk.black(',');
+	return (keys.indexOf(value) === (keys.length - 1)) ? printer.dark('') : printer.dark(',');
 }
 
-function pprintJSON(object, pad, skipKeys) {
+function pprintJSON(object, printer, pad, skipKeys) {
 	const padding = pad || 0;
 	let strpad = '';
 
@@ -24,42 +22,42 @@ function pprintJSON(object, pad, skipKeys) {
 		if (skipKeys === true) {
 			line = strpad;
 		} else {
-			line = chalk.black(strpad + key + ': ');
+			line = printer.dark(strpad + key + ': ');
 		}
 
 		const val = object[key];
 
 		switch (typeof val) {
 			case 'string':
-				line += chalk.blue('"' + val + '"' + comma(object, key));
+				line += printer.string('"' + val + '"' + comma(printer, object, key));
 				lines.push(line);
 				break;
 			case 'number':
-				line += chalk.red(val + comma(object, key));
+				line += printer.number(val + comma(printer, object, key));
 				lines.push(line);
 				break;
 			case 'boolean':
-				line += chalk.green((val ? 'true' : 'false') + comma(object, key));
+				line += printer.boolean((val ? 'true' : 'false') + comma(printer, object, key));
 				lines.push(line);
 				break;
 			case 'object':
 				if (Object.prototype.toString.call(val) === '[object Array]') {
-					lines.push(line + chalk.magenta('['));
-					const l = pprintJSON(val, padding + 1, true);
+					lines.push(line + printer.bracers('['));
+					const l = pprintJSON(val, printer, padding + 1, true);
 					l.forEach(function (line) {
 						lines.push(line);
 					});
-					lines.push(strpad + chalk.magenta(']') + comma(object, key));
+					lines.push(strpad + printer.bracers(']') + comma(printer, object, key));
 				} else if (Object.prototype.toString.call(val) === '[object Null]') {
-					line += chalk.gray('null' + comma(object, key));
+					line += printer.null('null' + comma(printer, object, key));
 					lines.push(line);
 				} else {
-					const l = pprintJSON(val, padding + 1);
-					lines.push(line + chalk.magenta('{'));
+					const l = pprintJSON(val, printer, padding + 1);
+					lines.push(line + printer.bracers('{'));
 					l.forEach(function (line) {
 						lines.push(line);
 					});
-					lines.push(strpad + chalk.magenta('}') + comma(object, key));
+					lines.push(strpad + printer.bracers('}') + comma(printer, object, key));
 				}
 				break;
 			default:
@@ -79,8 +77,8 @@ module.exports = {
 		}
 	},
 
-	prettyprint: function (data) {
+	prettyprint: function (data, printer) {
 		const obj = JSON.parse(data);
-		return pprintJSON(obj);
+		return pprintJSON(obj, printer);
 	}
 };

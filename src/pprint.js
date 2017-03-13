@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (data) {
+module.exports = function (data, printer) {
 	const parsers = [
 		require('./parser/json'),
 		require('./parser/csv')
@@ -9,7 +9,7 @@ module.exports = function (data) {
 
 	parsers.forEach(function (parser) {
 		if (parser.verify(data)) {
-			output = parser.prettyprint(data);
+			output = parser.prettyprint(data, printer);
 			return;
 		}
 	});

@@ -1,7 +1,6 @@
 'use strict';
 
 const parser = require('csv-parse/lib/sync');
-const chalk = require('chalk');
 
 module.exports = {
 	verify: function (data) {
@@ -15,7 +14,7 @@ module.exports = {
 		}
 	},
 
-	prettyprint: function (data) {
+	prettyprint: function (data, printer) {
 		const strpad = '  ';
 		/* eslint-disable camelcase */
 		const records = parser(data, {
@@ -26,30 +25,30 @@ module.exports = {
 		let lines = [];
 		if (records.length > 0) {
 			records.forEach(function (item) {
-				lines.push(chalk.magenta('['));
+				lines.push(printer.bracers('['));
 
 				for (let key in item) {
 					if (item.hasOwnProperty(key)) {
 						const val = item[key];
 						let line = '';
 
-						line += chalk.black(strpad + key + ': ');
+						line += printer.dark(strpad + key + ': ');
 
 						switch (typeof val) {
 							case 'string':
 								if (val.length > 0) {
 									if (val === 'true' || val === 'false') {
-										line += chalk.green((val === 'true' ? 'true' : 'false'));
+										line += printer.boolean((val === 'true' ? 'true' : 'false'));
 									} else {
-										line += chalk.blue('"' + val + '"');
+										line += printer.string('"' + val + '"');
 									}
 								} else {
-									line += chalk.gray('null');
+									line += printer.null('null');
 								}
 								lines.push(line);
 								break;
 							case 'number':
-								line += chalk.red(val);
+								line += printer.number(val);
 								lines.push(line);
 								break;
 							default:
@@ -57,7 +56,7 @@ module.exports = {
 					}
 				}
 
-				lines.push(chalk.magenta(']'));
+				lines.push(printer.bracers(']'));
 			});
 		}
 

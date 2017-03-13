@@ -12,7 +12,9 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "bin": {
-    "peyote": "./bin/peyote"
+    "peyote": "./bin/peyote-light",
+    "peyote-light": "./bin/peyote-light",
+    "peyote-dark": "./bin/peyote-dark"
   },
   "repository": {
     "type": "git",

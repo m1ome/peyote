@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+const peyote = require('../src/peyote');
+peyote("light");
