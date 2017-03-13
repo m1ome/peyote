@@ -28,5 +28,10 @@ $ echo '{"username": "admin", "status": 1, "is_admin": true}' | peyote
 $ peyote '{"username": "admin", "status": 1, "is_admin": true}'
 ```
 
+## For a dark-themed terminals:
+```
+$ peyote-dark '{"username": "admin", "status": 1, "is_admin": true}'
+```
+
 # Output
 ![First example](https://raw.githubusercontent.com/m1ome/peyote/master/public/img/example-1.png)
